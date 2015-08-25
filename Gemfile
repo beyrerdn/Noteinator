@@ -11,6 +11,7 @@ gem 'active_model_serializers', '~> 0.8.0'
 
 gem 'pg'
 
+gem 'faker'
 
 
 # To use ActiveModel has_secure_password
