@@ -24,3 +24,8 @@ module Notemeister5000
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
+
+config.action_dispatch.default_headers = {
+    'Access-Control-Allow-Origin' => 'http://localhost:35729',
+    'Access-Control-Request-Method' => %w{GET POST PATCH DELETE OPTIONS}.join(",")
+  }

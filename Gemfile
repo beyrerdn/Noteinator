@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.2.1'
 
 gem 'rails', '4.2.3'
 
@@ -13,6 +14,7 @@ gem 'pg'
 
 gem 'faker'
 
+gem 'rails_12factor', group: :production
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
