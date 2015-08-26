@@ -22,10 +22,9 @@ module Notemeister5000
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.action_dispatch.default_headers = {
+        'Access-Control-Allow-Origin' => 'http://localhost:35729',
+        'Access-Control-Request-Method' => %w{GET POST PATCH DELETE OPTIONS}.join(",")
+      }
   end
 end
-
-config.action_dispatch.default_headers = {
-    'Access-Control-Allow-Origin' => 'http://localhost:35729',
-    'Access-Control-Request-Method' => %w{GET POST PATCH DELETE OPTIONS}.join(",")
-  }
