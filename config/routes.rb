@@ -2,12 +2,15 @@ Rails.application.routes.draw do
   namespace :api do
     resources :tags, except: [:new, :edit]
     resources :notes, except: [:new, :edit]
+    resources :users, only: [:create]
   end
 
   root 'api/notes#index'
 
   get 'api/notes/tag/:name' => 'api/notes#by_tag'
-  
+
+  # post 'api/users/create' => 'api/users#create'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

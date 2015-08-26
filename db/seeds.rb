@@ -6,12 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
 5.times do
-  Note.create(
+  note = Note.create(
   {
     :title => Faker::Lorem.sentence,
     :body => Faker::Lorem.sentences(3),
     :tags => "#{Faker::Lorem.word}, #{Faker::Lorem.word}, #{Faker::Lorem.word}"
   }
   )
+  user = User.create(
+    :email => Faker::Internet.safe_email,
+    :api_token => Faker::Bitcoin.testnet_address
+  )
+  user.notes << note
 end
