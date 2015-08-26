@@ -2,6 +2,7 @@ class Note < ActiveRecord::Base
   include ActiveModel::Serialization
   has_many :taggings
   has_many :tags, through: :taggings
+  belongs_to :user
   validates_presence_of :title
   validates_presence_of :body
 
