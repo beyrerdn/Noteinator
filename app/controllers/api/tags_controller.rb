@@ -14,11 +14,11 @@ class Api::TagsController < ApplicationController
     @tag = Tag.create(tag_params)
     if @tag.save do
       render json: @tag, status: :created
+      end
     else
       render json: @tag.errors, status: :unprocessable_entity
     end
   end
-
 
   private
 
@@ -29,4 +29,5 @@ class Api::TagsController < ApplicationController
   def set_tag
     @tag = Tag.find(params[:id])
   end
+
 end
