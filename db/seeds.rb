@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+@commenter = User.create(:email => "commentator@troll.com", :api_token => "mrcNFEuEEvdDE7mrLAdRk2b5Qvg4yZGzqd")
 
 5.times do
   note = Note.create(
@@ -20,4 +21,9 @@
     :api_token => Faker::Bitcoin.testnet_address
   )
   user.notes << note
+  
+  Comment.create(
+    :body => Faker::Hacker.say_something_smart,
+    :user_id => @commenter.id,
+    :note_id => note.id)
 end
