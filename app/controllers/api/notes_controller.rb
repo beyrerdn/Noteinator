@@ -2,7 +2,11 @@ class Api::NotesController < ApplicationController
   before_action :set_note, only: [:show]
 
   def index
-    @notes = Note.all
+    if @user
+      @notes = @user.notes
+    else
+      @notes = Note.all
+    end
     render json: @notes
   end
 
@@ -48,14 +52,6 @@ class Api::NotesController < ApplicationController
 
   def set_note
     @note = Note.find(params[:id])
-  end
-
-  def user_authenticated?
-    User.find_by_api_token(params[:api_token])
-  end
-
-  def set_user
-    @user = User.find_by_api_token(params[:api_token])
   end
 
 end
