@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   namespace :api do
     resources :tags, except: [:new, :edit]
-    resources :notes, except: [:new, :edit]
     resources :users, only: [:create]
+    resources :notes, except: [:new, :edit]
+    resources :comments, only: [:create]
   end
 
   root 'api/notes#index'
